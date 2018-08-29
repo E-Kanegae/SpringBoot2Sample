@@ -18,7 +18,8 @@ public class OAuth2LoginSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http
-			.authorizeRequests()
+		.authorizeRequests()
+			.antMatchers("/webjars/**").permitAll() // ログインページのcss用
 			.anyRequest()
 			  .authenticated()
 			.and()
